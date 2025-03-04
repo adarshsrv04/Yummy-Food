@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import FoodData from "../models/FoodData";
 import FoodItem from "./FoodItem";
+import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
+
+
 // import SortBar from "../App"
 
 const SortBar = () => (
@@ -30,6 +35,8 @@ const MenuCategories = () => {
 
     const [openCategory, setOpenCategory] = useState(uniqueCategories.map(item => false));
     // const [isOpen, setIsOpen] = React.useState(false); // Initially closed
+    const cartItems = useSelector(state => state.cart);
+    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   
   const toggleCategory = (category) => {
     console.log(category);
@@ -95,6 +102,20 @@ const MenuCategories = () => {
                             .map((item) => (
                                 <FoodItem key={item.name} item={item} />
                             ))}
+                            {cartItems.length > 0 &&
+                <div className={`checkout-container ${isOpen ? "active" : ""}`}>
+                    {/* <button className="checkout-close" onClick={onClose}>✖</button> */}
+                    {/* <h3>{cartItems.length} items added</h3> */}
+                    <Link to="/goToCart">
+                        {/* <motion.span
+                            animate={animate ? { scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] } : {}}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        > */}
+                            <FaShoppingCart style={{ display: "block", width: "100%", height: "100%" }} />
+                            {totalItems > 0 && <span className={"cart-count"}>{totalItems}</span>}
+                        {/* </motion.span> */}
+                    </Link>
+                </div>}
                     </div>
                 </div>
             ))}

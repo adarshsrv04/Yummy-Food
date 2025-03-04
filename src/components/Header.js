@@ -45,7 +45,7 @@ const Header = () => {
         </motion.span> */}
         <motion.span
           // className="cart-button"
-          animate={animate ? { scale: [1, 1.4, 1], rotate: [0, 20, -10, 0] } : {}}
+          animate={animate ? { scale: [1, 1.3, 1], rotate: [0, 20, -10, 0] } : {}}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
         <FaShoppingCart />

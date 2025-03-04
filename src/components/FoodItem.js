@@ -101,25 +101,13 @@ const FoodItem = ({ item, onClose }) => {
                 </div>
             </div>
             <div class="_207Gy"></div>
-            {cartItems.length > 0 &&
-                <div className={`checkout-container ${isOpen ? "active" : ""}`}>
-                    {/* <button className="checkout-close" onClick={onClose}>✖</button> */}
-                    {/* <h3>{cartItems.length} items added</h3> */}
-                    <Link to="/goToCart">
-                        <motion.span
-                            animate={animate ? { scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] } : {}}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                        >
-                            <FaShoppingCart style={{ display: "block", width: "100%", height: "100%" }} />
-                            {totalItems > 0 && <span className={"cart-count"}>{totalItems}</span>}
-                        </motion.span>
-                    </Link>
-                </div>}
+
             {/* <FaShoppingCart
         onClick={() => setActiveCart(!activeCart)}
         className={`rounded-full bg-white shadow-md text-5xl p-3 fixed bottom-4 right-4 ${
             cartItems.length > 0 && "animate-bounce delay-500 transition-all"
         } `}/> */}
+            
         </>
     );
 };
