@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Yummy-Food/static/css/main.cfb567dc.css",
+    "main.js": "/Yummy-Food/static/js/main.b3ce539a.js",
+    "static/js/453.dca808d8.chunk.js": "/Yummy-Food/static/js/453.dca808d8.chunk.js",
+    "index.html": "/Yummy-Food/index.html",
+    "main.cfb567dc.css.map": "/Yummy-Food/static/css/main.cfb567dc.css.map",
+    "main.b3ce539a.js.map": "/Yummy-Food/static/js/main.b3ce539a.js.map",
+    "453.dca808d8.chunk.js.map": "/Yummy-Food/static/js/453.dca808d8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cfb567dc.css",
+    "static/js/main.b3ce539a.js"
+  ]
+}
