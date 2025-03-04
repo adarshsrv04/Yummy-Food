@@ -3,14 +3,30 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import FoodData from "../models/FoodData";
 import FoodItem from "./FoodItem";
 // import SortBar from "../App"
+
+const SortBar = () => (
+    <div>
+      {/* <div className="sort-bar">
+        Sort by:
+        <select>
+          <option>Name</option>
+          <option>Price</option>
+        </select>
+      </div> */}
+      <div class="ui search">
+        <input class="prompt" type="text" placeholder="Search for dishes" />
+        <div class="results"></div>
+      </div>
+    </div>
+  );
 const MenuCategories = () => {
     // console.log(selectedCategory);
 
     // const [quantity, setQuantity] = useState(0);
     // const [cartItems, setCartItems] = useState([]);
     const uniqueCategories = [...new Set(FoodData.map(item => item.category))];
-    const [isOpen, setIsOpen] = useState(uniqueCategories[0]);
-    const [isOpenCategory, setIsOpenCategory] = useState(null);
+    const [isOpen, setIsOpen] = useState("true");
+    const [isOpenCategory, setIsOpenCategory] = useState(uniqueCategories[0]);
 
     const [openCategory, setOpenCategory] = useState(uniqueCategories.map(item => false));
     // const [isOpen, setIsOpen] = React.useState(false); // Initially closed
@@ -63,19 +79,19 @@ const MenuCategories = () => {
         // )
 
         <div>
-            {/* <SortBar /> */}
+            <SortBar />
             {uniqueCategories.map((category) => (
                 <div
                 // key={item}
                 // className={item === selectedCategory ? "active" : ""}                    
                 >
                     <div className="itemCat">
-                        <div className="category-header" onClick={() => setIsOpen(category === isOpen ? "" : category)}>
+                        <div className="category-header" onClick={() => setIsOpenCategory((category === isOpenCategory) ? "" : category)}>
                             <h3>{category}</h3>
-                            {isOpen === category ? <FaChevronUp /> : <FaChevronDown />}
+                            {(isOpenCategory === category) ? <FaChevronUp /> : <FaChevronDown />}
                         </div>
                         {FoodData
-                            .filter((item) => item.category === category && isOpen === category)
+                            .filter((item) => item.category === category && (isOpenCategory === category))
                             .map((item) => (
                                 <FoodItem key={item.name} item={item} />
                             ))}

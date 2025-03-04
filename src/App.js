@@ -11,24 +11,24 @@ import MenuCategories from "./components/MenuCategories";
 import Cart from "./components/Cart";
 import { store } from "./redux/store";
 import cartSlice from './redux/slices/Carts/CartUpdate'
-import PopupImage from "./components/PopupImg";
+// import Cartdemo from "./components/PopupImg";
 
 
-const SortBar = () => (
-  <div>
-    <div className="sort-bar">
-      Sort by:
-      <select>
-        <option>Name</option>
-        <option>Price</option>
-      </select>
-    </div>
-    <div class="ui search">
-      <input class="prompt" type="text" placeholder="Search for dishes" />
-      <div class="results"></div>
-    </div>
-  </div>
-);
+// const SortBar = () => (
+//   <div>
+//     {/* <div className="sort-bar">
+//       Sort by:
+//       <select>
+//         <option>Name</option>
+//         <option>Price</option>
+//       </select>
+//     </div> */}
+//     <div class="ui search">
+//       <input class="prompt" type="text" placeholder="Search for dishes" />
+//       <div class="results"></div>
+//     </div>
+//   </div>
+// );
 
 // const Cart = ({ cartItems }) => (
 //   <div className="cart-section">
@@ -48,14 +48,16 @@ const App = () => {
         <div className="app">
           <div className="fixed-content">
             <Header />
-            <SortBar />
+            {/* <Cartdemo /> */}
             {/* <PopupImage /> */}
           </div>
           <div className="main-content">
+          {/* <SortBar /> */}
           <Routes>
             
               {/* <MenuCategories /> */}
               <Route path="/menu-items" element={<MenuCategories />}></Route>
+              <Route path="/" element={<MenuCategories />}></Route>
             
             {/* <Cart /> */}
             <Route path="/goToCart" element={<Cart />}></Route>
