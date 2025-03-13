@@ -12,12 +12,20 @@ import { motion } from "framer-motion";
 const ShowDetails = ({ desc, name, onClose }) => {
     return (
         <>
-            <div className="overlay" onClick={onClose}></div>
-            <div className="showDetails-container">
-                <button className="close-btn" onClick={onClose}>✖</button>
-                <h3>{name}</h3>
-                <p>{desc}</p>
-            </div>
+            <motion.div
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 10, opacity: 0 }}
+                transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
+                className="overlay"
+                onClick={onClose}
+            >
+                <div className="showDetails-container">
+                    <button className="close-btn" onClick={onClose}>✖</button>
+                    <h3>{name}</h3>
+                    <p>{desc}</p>
+                </div>
+            </motion.div>
         </>
     );
 }
@@ -73,7 +81,7 @@ const FoodItem = ({ item, onClose }) => {
                             <span>{(item.rating)} ({item.ratingCount})</span>
                         </div>
                     </div>
-                    <span className="showInMobile moreDetails" onClick={() => { setShowDetails(true) }}>More Details
+                    <span style={{ position: "relative" }} className="showInMobile moreDetails" onClick={() => { setShowDetails(true) }}>More Details
                         <FaChevronRight className="right-arrow" />
                     </span>
                     {showDetails && <ShowDetails desc={item.desc} name={item.name}
@@ -107,7 +115,7 @@ const FoodItem = ({ item, onClose }) => {
         className={`rounded-full bg-white shadow-md text-5xl p-3 fixed bottom-4 right-4 ${
             cartItems.length > 0 && "animate-bounce delay-500 transition-all"
         } `}/> */}
-            
+
         </>
     );
 };

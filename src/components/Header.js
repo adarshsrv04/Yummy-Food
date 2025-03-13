@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { FaShoppingCart } from "react-icons/fa";
+import { MdHistory } from "react-icons/md";
+import { FaHistory } from "react-icons/fa";
+
 import { IoMdInformationCircleOutline } from "react-icons/io";
 
 // export default function Header() {
@@ -43,6 +46,8 @@ const Header = () => {
           <FaShoppingCart />
           {cartItems.length > 0 && <span className="cart-count">{totalItems}</span>}
         </motion.span> */}
+        <Link to="/order-history"><FaHistory style={{color:'white'}}/></Link>
+        {/* <MdHistory /> */}
         <motion.span
           // className="cart-button"
           animate={animate ? { scale: [1, 1.3, 1], rotate: [0, 20, -10, 0] } : {}}

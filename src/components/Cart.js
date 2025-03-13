@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addItem, removeItem } from '../redux/store';
+import { addItem, removeItem, addOrderHistory, clearCart } from '../redux/store';
+import emptyCart from '../images/2xempty_cart.avif';
 
 // const Cart = () => {
 //     const cartItems = useSelector(state => state.cart);
@@ -48,6 +49,8 @@ import { addItem, removeItem } from '../redux/store';
 
 const Cart = () => {
     const cartItems = useSelector(state => state.cart);
+    const orderHistory = useSelector(state => state.orderHistory);
+    const navigate = useNavigate();
 
     // Calculate total price
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -64,12 +67,33 @@ const Cart = () => {
         dispatch(addItem(item));
     };
 
+    const handlePlaceOrder = () => {
+        if (cartItems.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+        const newOrder = {
+            id: Date.now(), // unique id
+            items: cartItems,
+            total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
+            date: new Date().toLocaleString()
+          };
+        
+          dispatch(addOrderHistory(newOrder));
+        //   localStorage.setItem("orderHistory", JSON.stringify([...orderHistory, newOrder]));
+          dispatch(clearCart());
+
+        // Optional: You can store the order data in session/local storage or pass via state.
+        // navigate("/order-details", { state: { cartItems } });
+        navigate("/processing-order", { state: { order: newOrder } });
+    };
+
     return (
         <div className="cart-section">
-            <h2>Your Cart</h2>
             {cartItems.length === 0 ? (
                 <>
-                    <p>Cart is empty</p>
+                    <img style={{ width: "100%" }} src={emptyCart} alt="Empty Cart" />
+                    <h2>Your cart is empty</h2>
                     <Link to="/menu-items" className="go-to-cartt">Browse Menu</Link>
                 </>
 
@@ -92,15 +116,10 @@ const Cart = () => {
 
                 //     <h3>Total: ₹{totalPrice}</h3>
                 // </div>
+
                 <div className="cart-content">
+                    <h2>Your Cart</h2>
                     <table className="cart-table">
-                        {/* <thead>
-              <tr>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th>Price</th>
-              </tr>
-            </thead> */}
                         <tbody>
                             {cartItems.map((item) => (
                                 <tr key={item.id}>
@@ -120,7 +139,11 @@ const Cart = () => {
                     <h3 className="cart-total">Total: ₹{totalPrice} 😊</h3>
                 </div>
             )}
+            {cartItems.length >0 && <><Link to="/menu-items" className="go-to-cartt">Browse Menu</Link> <button className="place-order-btn" onClick={handlePlaceOrder}>
+                Place Order
+            </button></>}
         </div>
+
         // <div class="_3A7wW">
         //     <div class="_38bXh">
         //         <div class="_3Pi5K">

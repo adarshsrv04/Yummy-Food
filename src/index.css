@@ -25,6 +25,10 @@ input, select {
   /* background: blanchedalmond !important; */
 }
 
+input:focus::placeholder {
+  opacity: 0;
+}
+
 /* .ui.button {
   margin-bottom: 30px;
 } */

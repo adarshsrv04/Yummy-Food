@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import { FaShoppingCart } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider, useDispatch, useSelector } from "react-redux";
-import { configureStore, createSlice } from "@reduxjs/toolkit";
 import Header from "./components/Header";
-import FoodCategories from "./components/FoodCategories";
-import FoodList from "./components/FoodList";
 import "./App.css";
 import MenuCategories from "./components/MenuCategories";
 import Cart from "./components/Cart";
-import { store } from "./redux/store";
-import cartSlice from './redux/slices/Carts/CartUpdate'
+import { store, addOrder } from "./redux/store";
+import Footer from "./components/Footer";
+import OrderDetails from "./components/OrderDetails";
+import OrderProcessing from "./components/OrderProcessing";
+import OrderHistory from "./components/OrderHistory";
+import Feedback from "./components/FeedBack";
 // import Cartdemo from "./components/PopupImg";
 
 
@@ -43,7 +43,7 @@ const App = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (
-    <Provider store={store}>
+    <>
       <Router>
         <div className="app">
           <div className="fixed-content">
@@ -52,16 +52,21 @@ const App = () => {
             {/* <PopupImage /> */}
           </div>
           <div className="main-content">
-          {/* <SortBar /> */}
-          <Routes>
-            
+            {/* <SortBar /> */}
+            <Routes>
+
               {/* <MenuCategories /> */}
               <Route path="/menu-items" element={<MenuCategories />}></Route>
               <Route path="/Yummy-Food" element={<MenuCategories />}></Route>
-            
-            {/* <Cart /> */}
-            <Route path="/goToCart" element={<Cart />}></Route>
-          </Routes>
+
+              {/* <Cart /> */}
+              <Route path="/cart" element={<Cart />}></Route>
+              <Route path="/order-details" element={<OrderDetails />}></Route>
+              <Route path="/processing-order" element={<OrderProcessing />} />
+              <Route path="/order-history" element={<OrderHistory />} />
+              <Route path="/feedback/:orderId" element={<Feedback />} />
+            </Routes>
+            {/* <Popup /> */}
           </div>
 
 
@@ -80,7 +85,8 @@ const App = () => {
           {/* <Cart cartItems={cartItems} /> */}
         </div>
       </Router>
-    </Provider>
+      <Footer />
+    </>
   );
 };
 
