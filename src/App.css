@@ -431,7 +431,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  top: 90%;
+  top: 85%;
   position: fixed;
   bottom: -22%;
   left: 5%;
@@ -443,7 +443,7 @@ body {
   padding: 20px;
   transition: transform 0.4sease -in-out;
   transform: translateY(100%);
-  z-index: 1000;
+  z-index: 5;
 }
 
 /* When active, slide up */

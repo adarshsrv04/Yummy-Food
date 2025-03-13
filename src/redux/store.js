@@ -31,6 +31,7 @@ const cartSlice = createSlice({
   }
 });
 
+// add/get order history to/from user's localstorage
 const savedOrders = JSON.parse(localStorage.getItem("orderHistory")) || [];
 const orderHistorySlice = createSlice({
   name: "orderHistory",
@@ -43,7 +44,7 @@ const orderHistorySlice = createSlice({
   }
 });
 
-// Add this new ratingsSlice:
+// add/get rating on particular order to/from user's localstorage
 const savedRatings = JSON.parse(localStorage.getItem("ratings") || "{}");
 const ratingsSlice = createSlice({
   name: "ratings",
