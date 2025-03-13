@@ -1,15 +1,22 @@
 {
   "files": {
-    "main.css": "/Yummy-Food/static/css/main.cfb567dc.css",
-    "main.js": "/Yummy-Food/static/js/main.6fc378b2.js",
+    "main.css": "/Yummy-Food/static/css/main.541cf5cf.css",
+    "main.js": "/Yummy-Food/static/js/main.0b5320cb.js",
+    "static/js/239.5ade029a.chunk.js": "/Yummy-Food/static/js/239.5ade029a.chunk.js",
+    "static/js/977.46308583.chunk.js": "/Yummy-Food/static/js/977.46308583.chunk.js",
+    "static/js/732.9df21aa6.chunk.js": "/Yummy-Food/static/js/732.9df21aa6.chunk.js",
     "static/js/453.dca808d8.chunk.js": "/Yummy-Food/static/js/453.dca808d8.chunk.js",
+    "static/media/2xempty_cart.avif": "/Yummy-Food/static/media/2xempty_cart.1dcd887709d6f5ae6c34.avif",
+    "static/media/fssai_logo.avif": "/Yummy-Food/static/media/fssai_logo.960bfaaec197f1b8fda8.avif",
     "index.html": "/Yummy-Food/index.html",
-    "main.cfb567dc.css.map": "/Yummy-Food/static/css/main.cfb567dc.css.map",
-    "main.6fc378b2.js.map": "/Yummy-Food/static/js/main.6fc378b2.js.map",
+    "main.541cf5cf.css.map": "/Yummy-Food/static/css/main.541cf5cf.css.map",
+    "main.0b5320cb.js.map": "/Yummy-Food/static/js/main.0b5320cb.js.map",
+    "239.5ade029a.chunk.js.map": "/Yummy-Food/static/js/239.5ade029a.chunk.js.map",
+    "732.9df21aa6.chunk.js.map": "/Yummy-Food/static/js/732.9df21aa6.chunk.js.map",
     "453.dca808d8.chunk.js.map": "/Yummy-Food/static/js/453.dca808d8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cfb567dc.css",
-    "static/js/main.6fc378b2.js"
+    "static/css/main.541cf5cf.css",
+    "static/js/main.0b5320cb.js"
   ]
 }
